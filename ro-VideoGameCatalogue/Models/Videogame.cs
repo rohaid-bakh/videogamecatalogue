@@ -4,6 +4,8 @@ using System.Data;
 
 namespace Ro_VideoGameCatalogue.Models
 {
+    // Would like to add a constructor here to make things less tedious
+    // Just not familiar with what changes can effect the database
     public class Videogame
     {
         public int ID { get; set; }

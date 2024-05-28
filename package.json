@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ajax": "^0.0.4",
+    "bootstrap": "^5.3.3",
+    "datatables.net-dt": "^2.0.7",
+    "require.js": "^1.0.0"
+  }
+}

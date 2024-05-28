@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ro_VideoGameCatalogue.Data;
 using Ro_VideoGameCatalogue.Models;
+using System.Data;
 
 namespace Ro_VideoGameCatalogue.Controllers
 {
@@ -47,6 +49,21 @@ namespace Ro_VideoGameCatalogue.Controllers
         public IActionResult Create()
         {
             return PartialView("Create");
+        }
+
+
+        // POST: Videogames/Pass
+        [HttpPost]
+        //[ValidateAntiForgeryToken] 
+        //Removed it for now because I'm not sure why it's throwing errors for every valid submission
+        public async Task Pass(string? title, string str_date, string? rating)
+        {
+            Videogame data = new Videogame();
+            
+            data.Title = title;
+            data.ReleaseDate = DateTime.Parse(str_date);
+            data.Genre = rating;
+            await Create(data);
         }
 
         // POST: Videogames/Create

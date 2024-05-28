@@ -21,9 +21,9 @@
         var date = item.ReleaseDate.Date.ToShortDateString();
         var genre = item.Genre;
         @:VideoGameData.push(["@title", "@date", "@genre"]);
-        @:EditButtons.push("<td> <span> <a asp-action='Edit' asp-route-id='" + "@item.ID" + "'>" + "Edit </span> </a>");
-        @:DetailsButtons.push("<span> <a asp-action='Details' asp-route-id='" + "@item.ID" + "'>" + "Details </span> <a>");
-        @:DeleteButtons.push("<span> <a asp-action='Delete' asp-route-id='" + "@item.ID" + "'>" + "Delete</a> </span> </td>");
+        @:EditButtons.push("<td><button class='Edit' id='" + "@item.ID" + "'>Edit</button>");
+        @:DetailsButtons.push("<button class='Details' id='" + "@item.ID" + "'>Details</button>");
+        @:DeleteButtons.push("<button class='Delete' id='" + "@item.ID" + "'>Delete</button></td>");
         
     }
 
@@ -34,22 +34,67 @@
             }
         );
         $('thead th:last-child').after("<th> CRUD Buttons </th>");
-        $('tr td:last-child').after(
-            EditButtons[0] + DetailsButtons[0] + DeleteButtons[0]
-        );
-         
+
+        var tableRows = $("#tr td:last-child");
+        for (let i = 0; i < tableRows.length ; i++) {
+          $(tableRows[i]).after(
+                    EditButtons[i] + DetailsButtons[i] + DeleteButtons[i]
+                );
+        };
+        
+
         var modal = document.getElementById("Modal");
         var createBtn = document.getElementById("Create");
         var closeBtn = document.getElementById("Close");
+        var submitBtn = document.getElementById("Submit");
         var interior = document.getElementsByClassName("modal-body");
         $(modal).hide();
         $(createBtn).on("click", function () {
             $(modal).show();
-            $(interior).load("/Videogames/Create");
+             $.ajax({
+                    url: '@Url.Action("Create")',
+                    type: 'GET',
+                    cache: false,
+                    error: function (data) {
+                        alert("fail");
+                    }
+                }).done(function (result) {
+                    $(interior).html(result);
+                });
         });
+
         $(closeBtn).on("click", function () {
             $(modal).hide();
         });
+
+        $(submitBtn).on("click", function () {
+            var title = $("#title").val();
+            var date = $("#releasedate").val();
+            var genre = $("#rating").val();
+            $.ajax({
+                url: '@Url.Action("Pass")',
+                type: 'POST',
+                data: { title: title, str_date: date, rating: genre },
+                Cache: false
+            }).done(function (result) {
+                location.reload();
+            });
+        });
+
+        $(".Edit").on("click", function () {
+            console.log("Hello");
+            var id = $(this).attr('id');
+            var id_num = parseInt(id);
+            console.log(id_num);
+            $.ajax({
+                url: '@Url.Action("Edit")',
+                type: 'GET',
+                data: { id: id_num },
+                Cache: false
+            });
+        });
+
+
     });
 </script>
 
@@ -71,15 +116,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body">
+                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" id="Submit"> Submit </input>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Close">Close</button>
             </div>
         </div>
     </div>
