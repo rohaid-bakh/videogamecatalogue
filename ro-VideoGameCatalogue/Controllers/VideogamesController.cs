@@ -161,12 +161,12 @@ namespace Ro_VideoGameCatalogue.Controllers
                 return NotFound();
             }
 
-            return View(videogame);
+            return PartialView(videogame);
         }
 
         // POST: Videogames/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var videogame = await _context.Videogame.FindAsync(id);
