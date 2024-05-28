@@ -22,10 +22,6 @@
         var genre = item.Genre;
         var ID = item.ID;
         @:VideoGameData.push(["@title", "@date", "@genre", "@ID"]);
-        // @:EditButtons.push("<td><button class='Edit' id='" + "@item.ID" + "'>Edit</button>");
-        // @:DetailsButtons.push("<button class='Details' id='" + "@item.ID" + "'>Details</button>");
-        // @:DeleteButtons.push("<button class='Delete' id='" + "@item.ID" + "'>Delete</button></td>");
-        
     }
 
     $(document).ready(function (){
@@ -37,9 +33,8 @@
                 rowId: [3],
                 createdRow: function (row, data) {
                     var editButton = "<td><button class='Edit' id='" + data[3] + "'>Edit</button>";
-                    var detailsButton = "<button class='Details' id='" + data[3] + "'>Details</button>";
                     var deleteButton = "<button class='Delete' id='" + data[3] + "'>Delete</button></td>";
-                    $('td:last-child', row).after($(editButton + detailsButton + deleteButton));
+                    $('td:last-child', row).after($(editButton + deleteButton));
                 },
                 drawCallback: function (settings) {
                         $(".Edit").on("click", function () {
@@ -75,9 +70,6 @@
             }
         );
         $('thead th:last-child').after("<th> CRUD Buttons </th>");
-
-        
-        
 
         var modal = document.getElementsByClassName("modal");
         var createBtn = document.getElementById("Create");
