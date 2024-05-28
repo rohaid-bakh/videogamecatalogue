@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.3.3",
+      "destination": "wwwroot/bootstrap/"
+    },
+    {
+      "library": "datatables.net@2.1.1",
+      "destination": "wwwroot/datatables.net/"
+    },
+    {
+      "library": "datatables.net-dt@2.1.1",
+      "destination": "wwwroot/datatables.net-dt/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "ajax@0.0.4",
+      "destination": "wwwroot/ajax/"
+    },
+    {
+      "library": "underscore.js@1.13.6",
+      "destination": "wwwroot/underscore.js/"
+    },
+    {
+      "library": "require.js@2.3.6",
+      "destination": "wwwroot/require.js/"
+    }
+  ]
+}

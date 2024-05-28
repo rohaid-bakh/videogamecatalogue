@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Ro_VideoGameCatalogue.Models.Videogame>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Recent Reviews</h1>
+@*  onclick="location.href='@Url.Action("Create")'" *@
+<p>
+    <button type="button" class="btn btn-primary" id="Create">Submit a new review</button>
+</p>
+
+<script>
+    var VideoGameData = [];
+    var EditButtons = [];
+    var DetailsButtons = [];
+    var DeleteButtons = [];
+    @foreach (var item in Model){
+        var title = item.Title;
+        var date = item.ReleaseDate.Date.ToShortDateString();
+        var genre = item.Genre;
+        @:VideoGameData.push(["@title", "@date", "@genre"]);
+        @:EditButtons.push("<td> <span> <a asp-action='Edit' asp-route-id='" + "@item.ID" + "'>" + "Edit </span> </a>");
+        @:DetailsButtons.push("<span> <a asp-action='Details' asp-route-id='" + "@item.ID" + "'>" + "Details </span> <a>");
+        @:DeleteButtons.push("<span> <a asp-action='Delete' asp-route-id='" + "@item.ID" + "'>" + "Delete</a> </span> </td>");
+        
+    }
+
+    $(document).ready(function (){
+        $('#videoReviewData').DataTable(
+            {
+                data: VideoGameData
+            }
+        );
+        $('thead th:last-child').after("<th> CRUD Buttons </th>");
+        $('tr td:last-child').after(
+            EditButtons[0] + DetailsButtons[0] + DeleteButtons[0]
+        );
+         
+        var modal = document.getElementById("Modal");
+        var createBtn = document.getElementById("Create");
+        var closeBtn = document.getElementById("Close");
+        var interior = document.getElementsByClassName("modal-body");
+        $(modal).hide();
+        $(createBtn).on("click", function () {
+            $(modal).show();
+            $(interior).load("/Videogames/Create");
+        });
+        $(closeBtn).on("click", function () {
+            $(modal).hide();
+        });
+    });
+</script>
+
+<div >
+<table class="table" id="videoReviewData">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Date Released </th>
+            <th> Rating </th>
+        </tr>
+    </thead>
+</table>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="Modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table">
+   @*  <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead> *@
+    <tbody>
+           
+@* @foreach (var item in Model) {
+   
+           <tr>
+             <div class="card text-white bg-primary mb-3" style="max-width: 100rem;">
+              <div class="card-header">@Html.DisplayFor(modelItem => item.Title)</div>
+                    <div class="card-body">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.ReleaseDate)</h4>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Genre)</p>
+                    </div>
+                <span class="badge bg-primary rounded-pill">
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </span>
+                </div>
+            </tr>
+}            *@
+    </tbody>
+</table>
