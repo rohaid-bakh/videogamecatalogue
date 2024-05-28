@@ -20,37 +20,59 @@
         var title = item.Title;
         var date = item.ReleaseDate.Date.ToShortDateString();
         var genre = item.Genre;
-        @:VideoGameData.push(["@title", "@date", "@genre"]);
-        @:EditButtons.push("<td><button class='Edit' id='" + "@item.ID" + "'>Edit</button>");
-        @:DetailsButtons.push("<button class='Details' id='" + "@item.ID" + "'>Details</button>");
-        @:DeleteButtons.push("<button class='Delete' id='" + "@item.ID" + "'>Delete</button></td>");
+        var ID = item.ID;
+        @:VideoGameData.push(["@title", "@date", "@genre", "@ID"]);
+        // @:EditButtons.push("<td><button class='Edit' id='" + "@item.ID" + "'>Edit</button>");
+        // @:DetailsButtons.push("<button class='Details' id='" + "@item.ID" + "'>Details</button>");
+        // @:DeleteButtons.push("<button class='Delete' id='" + "@item.ID" + "'>Delete</button></td>");
         
     }
 
     $(document).ready(function (){
+        var editID = 0;
         $('#videoReviewData').DataTable(
             {
-                data: VideoGameData
+                data: VideoGameData,
+                rowId: [3],
+                createdRow: function (row, data) {
+                    var editButton = "<td><button class='Edit' id='" + data[3] + "'>Edit</button>";
+                    var detailsButton = "<button class='Details' id='" + data[3] + "'>Details</button>";
+                    var deleteButton = "<button class='Delete' id='" + data[3] + "'>Delete</button></td>";
+                    $('td:last-child', row).after($(editButton + detailsButton + deleteButton));
+                },
+                drawCallback: function (settings) {
+                        $(".Edit").on("click", function () {
+                            console.log("Hello");
+                            var id = $(this).attr('id');
+                            var id_num = parseInt(id);
+                            editID = id_num;
+                            $(".modal").filter("#editModal").show();
+                            $.ajax({
+                                url: '@Url.Action("Edit")',
+                                type: 'GET',
+                                data: { id: id_num },
+                                Cache: false
+                            }).done(function (result) {
+                                $(".modal-body").filter("#edit-modal-body").html(result);
+                            });
+                        });
+                }
             }
         );
         $('thead th:last-child').after("<th> CRUD Buttons </th>");
 
-        var tableRows = $("#tr td:last-child");
-        for (let i = 0; i < tableRows.length ; i++) {
-          $(tableRows[i]).after(
-                    EditButtons[i] + DetailsButtons[i] + DeleteButtons[i]
-                );
-        };
+        
         
 
-        var modal = document.getElementById("Modal");
+        var modal = document.getElementsByClassName("modal");
         var createBtn = document.getElementById("Create");
-        var closeBtn = document.getElementById("Close");
-        var submitBtn = document.getElementById("Submit");
+        var closeBtn = document.getElementsByClassName("Close");
+        var submitBtn = document.getElementById("Submit-Create");
+        var editSubmitBtn = document.getElementById("Submit-Edit");
         var interior = document.getElementsByClassName("modal-body");
         $(modal).hide();
         $(createBtn).on("click", function () {
-            $(modal).show();
+            $(modal).filter("#createModal").show();
              $.ajax({
                     url: '@Url.Action("Create")',
                     type: 'GET',
@@ -59,12 +81,12 @@
                         alert("fail");
                     }
                 }).done(function (result) {
-                    $(interior).html(result);
+                    $(interior).filter('#create-modal-body').html(result);
                 });
         });
 
         $(closeBtn).on("click", function () {
-            $(modal).hide();
+           $(modal).hide();
         });
 
         $(submitBtn).on("click", function () {
@@ -81,19 +103,20 @@
             });
         });
 
-        $(".Edit").on("click", function () {
-            console.log("Hello");
-            var id = $(this).attr('id');
-            var id_num = parseInt(id);
-            console.log(id_num);
-            $.ajax({
-                url: '@Url.Action("Edit")',
-                type: 'GET',
-                data: { id: id_num },
-                Cache: false
+        $(editSubmitBtn).on("click", function () {
+           var title = $("#Edit-Title").val();
+           var date = $("#Edit-Date").val();
+           var genre = $("#Edit-Rating").val();
+           
+           $.ajax({
+              url: '@Url.Action("EditPass")',
+              type: 'POST',
+              data: { id:editID, title: title, str_date: date, rating: genre },
+              Cache: false
+              }).done(function (result) {
+                    location.reload();
+              });
             });
-        });
-
 
     });
 </script>
@@ -105,30 +128,47 @@
             <th> Name </th>
             <th> Date Released </th>
             <th> Rating </th>
+            @* <th> ID </th> *@
         </tr>
     </thead>
 </table>
 </div>
 
 
-<div class="modal" tabindex="-1" role="dialog" id="Modal">
+<div class="modal" tabindex="-1" role="dialog" id="createModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create</h5>
                     <span aria-hidden="true">&times;</span>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="create-modal-body">
                 
             </div>
             <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" id="Submit"> Submit </input>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Close">Close</button>
+                <input type="submit" class="btn btn-primary" id="Submit-Create"> Submit </input>
+                <button type="button" class="btn btn-secondary Close" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal" tabindex="-1" role="dialog" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit</h5>
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body" id="edit-modal-body">
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" id="Submit-Edit"> Submit </input>
+                <button type="button" class="btn btn-secondary Close" data-dismiss="modal" id="Close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <table class="table">

@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\views\\videogames\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\views\\videogames\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\controllers\\videogamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\controllers\\videogamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\models\\videogame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\models\\videogame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\views\\videogames\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\views\\videogames\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\views\\videogames\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\views\\videogames\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\views\\videogames\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\views\\videogames\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|c:\\users\\rohaid\\documents\\ro-videogamecatalogue\\ro-videogamecatalogue\\models\\videogame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82D2605B-C1F0-4EC8-8579-8F19289FCAB6}|Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj|solutionrelative:ro-videogamecatalogue\\models\\videogame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ro-VideoGameCatalogue\\Views\\Videogames\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Edit.cshtml",
+              "RelativeToolTip": "ro-VideoGameCatalogue\\Views\\Videogames\\Edit.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-28T16:44:56.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Index.cshtml",
               "RelativeDocumentMoniker": "ro-VideoGameCatalogue\\Views\\Videogames\\Index.cshtml",
               "ToolTip": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Index.cshtml",
               "RelativeToolTip": "ro-VideoGameCatalogue\\Views\\Videogames\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF8AAAAAAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAApwHAAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-27T23:49:48.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Create.cshtml",
               "RelativeDocumentMoniker": "ro-VideoGameCatalogue\\Views\\Videogames\\Create.cshtml",
               "ToolTip": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Views\\Videogames\\Create.cshtml",
               "RelativeToolTip": "ro-VideoGameCatalogue\\Views\\Videogames\\Create.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABcAAABUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-27T23:33:03.872Z"
+              "WhenOpened": "2024-05-27T23:33:03.872Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "VideogamesController.cs",
               "DocumentMoniker": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Controllers\\VideogamesController.cs",
               "RelativeDocumentMoniker": "ro-VideoGameCatalogue\\Controllers\\VideogamesController.cs",
               "ToolTip": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Controllers\\VideogamesController.cs",
               "RelativeToolTip": "ro-VideoGameCatalogue\\Controllers\\VideogamesController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAswFQAAAAQAAAA",
+              "ViewState": "AQIAAHYAAAAAAAAAAADwv24AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T23:22:46.699Z"
+              "WhenOpened": "2024-05-27T23:22:46.699Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Videogame.cs",
               "DocumentMoniker": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Models\\Videogame.cs",
               "RelativeDocumentMoniker": "ro-VideoGameCatalogue\\Models\\Videogame.cs",
               "ToolTip": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Models\\Videogame.cs",
               "RelativeToolTip": "ro-VideoGameCatalogue\\Models\\Videogame.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAcAAABCAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T22:29:35.154Z"
+              "WhenOpened": "2024-05-27T22:29:35.154Z",
+              "EditorCaption": ""
             }
           ]
         }

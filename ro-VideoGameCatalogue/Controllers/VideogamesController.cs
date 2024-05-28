@@ -82,7 +82,7 @@ namespace Ro_VideoGameCatalogue.Controllers
             return View(videogame);
         }
 
-        // GET: Videogames/Edit/5
+        // GET: Videogames/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,10 +95,23 @@ namespace Ro_VideoGameCatalogue.Controllers
             {
                 return NotFound();
             }
-            return View(videogame);
+            return PartialView("Edit",videogame);
         }
 
-        // POST: Videogames/Edit/5
+        //POST: Videogamaes/EditPass
+
+        [HttpPost]
+        public async Task EditPass(int id, string? title, string str_date, string? rating)
+        {
+            Videogame data = new Videogame();
+
+            data.Title = title;
+            data.ReleaseDate = DateTime.Parse(str_date);
+            data.Genre = rating;
+            data.ID = id;
+            await Edit(id, data);
+        }
+        // POST: Videogames/Edit/
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
