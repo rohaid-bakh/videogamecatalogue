@@ -26,58 +26,58 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Shared/Error.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Test/Database.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Test/Database.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEYXRhYmFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Test/Index.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Test/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Test/Welcome.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Test/Welcome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxXZWxjb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/Create.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/Delete.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/Details.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/Edit.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/Index.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Videogames/_CreatePartialView.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Videogames/_CreatePartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlkZW9nYW1lc1xfQ3JlYXRlUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/_ViewImports.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/_ViewStart.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/Ro-VideoGameCatalogue/Views/Shared/_Layout.cshtml]
+[C:/Users/Rohaid/Documents/ro-VideoGameCatalogue/ro-VideoGameCatalogue/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zv31my8rj9

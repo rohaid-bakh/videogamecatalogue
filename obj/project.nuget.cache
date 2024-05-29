@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "89waTDgwF76bu70BhlqFJlCFhf1sKTZWsH6Ap4pRZjRmiozpVjEQ2o1mKZif98iOp5dT55tGzNladzz9pjW8uQ==",
+  "dgSpecHash": "H+3DgPB2ymINnietVgRGObXSRUnySNYXWpyjYBZxgbuHRsM9ArYhuO4oVaR5DwKsadHQzkGmxcLj585s4JjY+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\Ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj",
+  "projectFilePath": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\ro-VideoGameCatalogue\\Ro-VideoGameCatalogue.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rohaid\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Rohaid\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
