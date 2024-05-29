@@ -54,8 +54,7 @@ namespace Ro_VideoGameCatalogue.Controllers
 
         // POST: Videogames/Pass
         [HttpPost]
-        //[ValidateAntiForgeryToken] 
-        //Removed it for now because I'm not sure why it's throwing errors for every valid submission
+        [ValidateAntiForgeryToken]
         public async Task Pass(string? title, string str_date, string? rating)
         {
             Videogame data = new Videogame();
@@ -99,9 +98,9 @@ namespace Ro_VideoGameCatalogue.Controllers
         }
 
         //POST: Videogamaes/EditPass
-
         [HttpPost]
-        public async Task EditPass(int id, string? title, string str_date, string? rating)
+		[ValidateAntiForgeryToken]
+		public async Task EditPass(int id, string? title, string str_date, string? rating)
         {
             Videogame data = new Videogame();
 
@@ -111,6 +110,7 @@ namespace Ro_VideoGameCatalogue.Controllers
             data.ID = id;
             await Edit(id, data);
         }
+
         // POST: Videogames/Edit/
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -146,7 +146,7 @@ namespace Ro_VideoGameCatalogue.Controllers
             return View(videogame);
         }
 
-        // GET: Videogames/Delete/5
+        // GET: Videogames/Delete/
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -164,9 +164,9 @@ namespace Ro_VideoGameCatalogue.Controllers
             return PartialView(videogame);
         }
 
-        // POST: Videogames/Delete/5
+        // POST: Videogames/Delete/
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var videogame = await _context.Videogame.FindAsync(id);
