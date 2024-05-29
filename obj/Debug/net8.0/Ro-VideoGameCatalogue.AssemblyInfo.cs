@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ro-VideoGameCatalogue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8f25a4408635f7a32264f214a44c22591f9be46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17c6ec8150ff4ba5ac925b129ffc67e7e193ceae")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ro-VideoGameCatalogue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ro-VideoGameCatalogue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
