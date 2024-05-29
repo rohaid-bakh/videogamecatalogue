@@ -4,6 +4,8 @@ using System.Data;
 
 namespace Ro_VideoGameCatalogue.Models
 {
+    // I was following a tutorial here and placed Genre instead of rating
+    // I want to rework this but decided to focus my time on getting the functionality to work
     public class Videogame
     {
         public int ID { get; set; }

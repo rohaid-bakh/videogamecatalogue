@@ -6,52 +6,166 @@
 
 
 <h1>Recent Reviews</h1>
-@*  onclick="location.href='@Url.Action("Create")'" *@
 <p>
     <button type="button" class="btn btn-primary" id="Create">Submit a new review</button>
 </p>
 
 <script>
     var VideoGameData = [];
-    var EditButtons = [];
-    var DetailsButtons = [];
-    var DeleteButtons = [];
+    
+    @* I would prefer passing on the data from the controller to the view as a json object
+       So that the JQuery can render it out in datables. 
+       I understand that the current method is essentially cloning the data on the client side.
+    *@
     @foreach (var item in Model){
         var title = item.Title;
         var date = item.ReleaseDate.Date.ToShortDateString();
         var genre = item.Genre;
-        @:VideoGameData.push(["@title", "@date", "@genre"]);
-        @:EditButtons.push("<td> <span> <a asp-action='Edit' asp-route-id='" + "@item.ID" + "'>" + "Edit </span> </a>");
-        @:DetailsButtons.push("<span> <a asp-action='Details' asp-route-id='" + "@item.ID" + "'>" + "Details </span> <a>");
-        @:DeleteButtons.push("<span> <a asp-action='Delete' asp-route-id='" + "@item.ID" + "'>" + "Delete</a> </span> </td>");
-        
+        var ID = item.ID;
+        @:VideoGameData.push(["@title", "@date", "@genre", "@ID"]);
     }
 
+    @*
+     Loads data tables + attaches callbacks for Edit/Delete/Create buttons and modal behavior.
+     Would move this to a seperate file but the code is dependent on razor for url loading and the datatables
+    *@
+
     $(document).ready(function (){
+        var editID = 0;
+        var deleteID = 0;
         $('#videoReviewData').DataTable(
             {
-                data: VideoGameData
+                data: VideoGameData,
+                rowId: [3],
+                createdRow: function (row, data) {
+                    var editButton = "<td><button class='Edit btn btn-light' id='" + data[3] + "'>Edit</button>";
+                    var deleteButton = "<button class='Delete btn btn-light' id='" + data[3] + "'>Delete</button></td>";
+                    $('td:last-child', row).after($(editButton + deleteButton));
+                },
+                drawCallback: function (settings) {
+
+                        $(".Edit").on("click", function () {
+                            var id = $(this).attr('id');
+                            var id_num = parseInt(id);
+                            editID = id_num;
+                            $(".modal").filter("#editModal").show();
+                            $.ajax({
+                                url: '@Url.Action("Edit")',
+                                type: 'GET',
+                                data: { id: id_num },
+                                Cache: false
+                            }).done(function (result) {
+                                $(".modal-body").filter("#edit-modal-body").html(result);
+                            });
+                        });
+
+                       
+                        $(".Delete").on("click", function () {
+                            var id = $(this).attr('id');
+                            var id_num = parseInt(id);
+                            deleteID = id_num;
+                            $(".modal").filter("#deleteModal").show();
+                            $.ajax({
+                                url: '@Url.Action("Delete")',
+                                type: 'GET',
+                                data: { id: id_num },
+                                Cache: false
+                            }).done(function (result) {
+                                $(".modal-body").filter("#delete-modal-body").html(result);  
+                            });
+                        });
+                }
             }
         );
-        $('thead th:last-child').after("<th> CRUD Buttons </th>");
-        $('tr td:last-child').after(
-            EditButtons[0] + DetailsButtons[0] + DeleteButtons[0]
-        );
-         
-        var modal = document.getElementById("Modal");
+
+        @*
+        Must be placed here because if set with the table then data tables will load in the IDs
+        *@
+        $('thead th:last-child').after("<th> Setting Buttons </th>");
+
+        var modal = document.getElementsByClassName("modal");
         var createBtn = document.getElementById("Create");
-        var closeBtn = document.getElementById("Close");
+        var closeBtn = document.getElementsByClassName("Close");
+        var submitBtn = document.getElementById("Submit-Create");
+        var editSubmitBtn = document.getElementById("Submit-Edit");
+        var deleteSubmitBtn = document.getElementById("Submit-Delete");
         var interior = document.getElementsByClassName("modal-body");
-        $(modal).hide();
+
         $(createBtn).on("click", function () {
-            $(modal).show();
-            $(interior).load("/Videogames/Create");
+            $(modal).filter("#createModal").show();
+             $.ajax({
+                    url: '@Url.Action("Create")',
+                    type: 'GET',
+                    cache: false,
+                    error: function (data) {
+                        alert("fail");
+                    }
+                }).done(function (result) {
+                    $(interior).filter('#create-modal-body').html(result);
+                });
         });
-        $(closeBtn).on("click", function () {
-            $(modal).hide();
+
+        $(submitBtn).on("click", function () {
+            var title = $("#title").val();
+            var date = $("#releasedate").val();
+            var genre = $("#rating").val();
+            var t = $("input[name='__RequestVerificationToken']").val();
+            $.ajax({
+                url: '@Url.Action("Pass")',
+                type: 'POST',
+                headers:
+                {
+                "RequestVerificationToken": t
+                },
+                data: { title: title, str_date: date, rating: genre },
+                Cache: false
+            }).done(function (result) {
+                location.reload();
+            });
         });
+
+        $(editSubmitBtn).on("click", function () {
+           var title = $("#Edit-Title").val();
+           var date = $("#Edit-Date").val();
+           var genre = $("#Edit-Rating").val();
+           var t = $("input[name='__RequestVerificationToken']").val();
+           $.ajax({
+              url: '@Url.Action("EditPass")',
+              type: 'POST',
+              data: { id:editID, title: title, str_date: date, rating: genre },
+              headers:
+                {
+                "RequestVerificationToken": t
+                },
+              Cache: false
+              }).done(function (result) {
+                    location.reload();
+              });
+            });
+
+          $(deleteSubmitBtn).on("click", function () {
+              var t = $("input[name='__RequestVerificationToken']").val();
+             $.ajax({
+                url: '@Url.Action("Delete")',
+                type: 'POST',
+                headers:
+                {
+                "RequestVerificationToken": t
+                },
+                data: { id: deleteID},
+                Cache: false
+              }).done(function (result) {
+                 location.reload();
+              });
+           });
     });
 </script>
+
+@*
+    Moved what I could out of this view
+*@
+<script src="~/websitejs/nonajax.js"></script>
+
 
 <div >
 <table class="table" id="videoReviewData">
@@ -60,66 +174,77 @@
             <th> Name </th>
             <th> Date Released </th>
             <th> Rating </th>
+           
         </tr>
     </thead>
 </table>
 </div>
 
 
-<div class="modal" tabindex="-1" role="dialog" id="Modal">
+
+    @*
+     Edit + Delete + Create can probably be all loaded into the same modal.
+     Only thing would be controlling the different submit behavior
+    *@
+
+    @*
+        Create Modal
+    *@
+<div class="modal" tabindex="-1" role="dialog" id="createModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="create-modal-body">
+                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" id="Submit-Create">  </input>
+                <button type="button" class="btn btn-secondary Close" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+        Edit Modal
+*@
+<div class="modal" tabindex="-1" role="dialog" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit</h5>
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body" id="edit-modal-body">
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" id="Submit-Edit">   </input>
+                <button type="button" class="btn btn-secondary Close" data-dismiss="modal" id="Close">Close</button>
             </div>
         </div>
     </div>
 </div>
 
 
-
-<table class="table">
-   @*  <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th></th>
-        </tr>
-    </thead> *@
-    <tbody>
-           
-@* @foreach (var item in Model) {
-   
-           <tr>
-             <div class="card text-white bg-primary mb-3" style="max-width: 100rem;">
-              <div class="card-header">@Html.DisplayFor(modelItem => item.Title)</div>
-                    <div class="card-body">
-                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.ReleaseDate)</h4>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Genre)</p>
-                    </div>
-                <span class="badge bg-primary rounded-pill">
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                    </span>
-                </div>
-            </tr>
-}            *@
-    </tbody>
-</table>
+@*
+        Delete Modal
+*@
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete</h5>
+            </div>
+            <div class="modal-body" id="delete-modal-body">
+            <h2> Are you sure you want to delete this item?</h2>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" id="Submit-Delete"> Yes </button>
+                <button type="button" class="btn btn-secondary Close" data-dismiss="modal" id="Close">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

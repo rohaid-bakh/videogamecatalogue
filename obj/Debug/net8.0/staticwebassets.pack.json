@@ -1125,6 +1125,10 @@
       "PackagePath": "staticwebassets\\underscore.js\\underscore.min.js"
     },
     {
+      "Id": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\Ro-VideoGameCatalogue\\wwwroot\\websiteJS\\nonAjax.js",
+      "PackagePath": "staticwebassets\\websiteJS\\nonAjax.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Ro-VideoGameCatalogue.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

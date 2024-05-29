@@ -281,3 +281,4 @@ C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue\bin\Debug\
 C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue\obj\Debug\net8.0\Ro-VideoGameCatalogue.csproj.AssemblyReference.cache
 C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue\obj\Debug\net8.0\Ro-Video.0DAB6413.Up2Date
 C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue\bin\Debug\net8.0\libman.json
+C:\Users\Rohaid\Documents\ro-VideoGameCatalogue\Ro-VideoGameCatalogue\obj\Debug\net8.0\Ro-VideoGameCatalogue.sourcelink.json

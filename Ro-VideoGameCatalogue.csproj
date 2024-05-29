@@ -22,4 +22,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\websiteJS\nonAjax.js" />
+  </ItemGroup>
+
 </Project>

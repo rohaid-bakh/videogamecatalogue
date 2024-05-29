@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ro_VideoGameCatalogue.Data;
 using Ro_VideoGameCatalogue.Models;
+using System.Data;
 
 namespace Ro_VideoGameCatalogue.Controllers
 {
@@ -49,6 +51,20 @@ namespace Ro_VideoGameCatalogue.Controllers
             return PartialView("Create");
         }
 
+
+        // POST: Videogames/Pass
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task Pass(string? title, string str_date, string? rating)
+        {
+            Videogame data = new Videogame();
+            
+            data.Title = title;
+            data.ReleaseDate = DateTime.Parse(str_date);
+            data.Genre = rating;
+            await Create(data);
+        }
+
         // POST: Videogames/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,7 +81,7 @@ namespace Ro_VideoGameCatalogue.Controllers
             return View(videogame);
         }
 
-        // GET: Videogames/Edit/5
+        // GET: Videogames/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,10 +94,24 @@ namespace Ro_VideoGameCatalogue.Controllers
             {
                 return NotFound();
             }
-            return View(videogame);
+            return PartialView("Edit",videogame);
         }
 
-        // POST: Videogames/Edit/5
+        //POST: Videogamaes/EditPass
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task EditPass(int id, string? title, string str_date, string? rating)
+        {
+            Videogame data = new Videogame();
+
+            data.Title = title;
+            data.ReleaseDate = DateTime.Parse(str_date);
+            data.Genre = rating;
+            data.ID = id;
+            await Edit(id, data);
+        }
+
+        // POST: Videogames/Edit/
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -116,7 +146,7 @@ namespace Ro_VideoGameCatalogue.Controllers
             return View(videogame);
         }
 
-        // GET: Videogames/Delete/5
+        // GET: Videogames/Delete/
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,10 +161,10 @@ namespace Ro_VideoGameCatalogue.Controllers
                 return NotFound();
             }
 
-            return View(videogame);
+            return PartialView(videogame);
         }
 
-        // POST: Videogames/Delete/5
+        // POST: Videogames/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3AT0P0gLdBJUmDB0fXaP5mFT+d5R59VulaycpXlm+qA=",
+  "Hash": "dL1+M3n9IzNF8u+DMwPIqvVEY7mPeYssEx7eA0iAgAM=",
   "Source": "Ro-VideoGameCatalogue",
   "BasePath": "_content/Ro-VideoGameCatalogue",
   "Mode": "Default",
@@ -5373,6 +5373,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\underscore.js\\underscore-umd-min.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\Ro-VideoGameCatalogue\\wwwroot\\websiteJS\\nonAjax.js",
+      "SourceId": "Ro-VideoGameCatalogue",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rohaid\\Documents\\ro-VideoGameCatalogue\\Ro-VideoGameCatalogue\\wwwroot\\",
+      "BasePath": "_content/Ro-VideoGameCatalogue",
+      "RelativePath": "websiteJS/nonAjax.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\websiteJS\\nonAjax.js"
     }
   ]
 }
